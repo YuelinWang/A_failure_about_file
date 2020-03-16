@@ -32,7 +32,7 @@ var Persons_Vue = new Vue({
             'birthday':'',
             'id':''
         },
-        find_people_keys:['身份证','姓名'],
+        find_people_keys:['学号','姓名'],
         find_people_input:{
             key:'',
             value:''
@@ -130,7 +130,7 @@ var Persons_Vue = new Vue({
                 Alert('错误','并未添加查找信息','warning','#bottonfindpeoalerts');
             }else{
                 var key = '';
-                if(Persons_Vue.find_people_input.key=='身份证'){key = 'ownerid';}
+                if(Persons_Vue.find_people_input.key=='学号'){key = 'ownerid';}
                 else{key = 'name';}
                 var value = Persons_Vue.find_people_input.value;
                 
@@ -162,10 +162,10 @@ var Persons_Vue = new Vue({
                 if(foudhousehold!=undefined){
                     Persons_Vue.Botton_Change_Print(foudhousehold);
                     $("#findpeoplemodal").modal('hide');
-                    Alert('成功','查询到目标村民 '+value+' ，并跳转页面成功','success');
+                    Alert('成功','查询到目标学生 '+value+' ，并跳转页面成功','success');
                 }else{
                     $("#findpeoplemodal").modal('hide');
-                    Alert('失败','没有查询到目标村民 '+value,'info');
+                    Alert('失败','没有查询到目标学生 '+value,'info');
                 }
                 
                 //$("#findpeoplemodal").modal('hide');

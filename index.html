@@ -176,41 +176,54 @@
 												<div class="modal-body">
 													<div class="container">
 														<form class="form-group">
-															
+															<!--学生基本信息-->
 															<div class="input-group mb-3">
 																<div class="input-group-prepend">
 																	<span class="input-group-text">学生基本信息</span>
 																</div>
-																<input v-model="input_message.name" type="text"
+																<input v-model="input_message.name_s" type="text"
 																	class="form-control" placeholder="姓名">
-																<input v-model="input_message.ownerid" type="text"
+																<input v-model="input_message.id_s" type="text"
 																	class="form-control" placeholder="学号"
 																	style="width: 150px;">
-																<input v-model="input_message.sex" type="text"
+																<input v-model="input_message.sex_s" type="text"
 																	class="form-control" placeholder="性别"
 																	style="width: 20px;">
-																<input v-model="input_message.birthday" type="text"
+																<input v-model="input_message.birthday_s" type="text"
 																	class="form-control" placeholder="出生年月">
-																<input v-model="input_message.race" type="text"
-																	class="form-control" placeholder="民族">
+																<input v-model="input_message.race_s" type="text"
+																	class="form-control" placeholder="民族"><br>
 															</div>
+															<!--学生详细信息-->
 															<div class="input-group mb-3">
 																<div class="input-group-prepend">
 																	<span class="input-group-text">学生详细信息</span>
 																</div>
-																<input v-model="input_message.political" type="text"
+																<input v-model="input_message.political_s" type="text"
 																	class="form-control" placeholder="政治面貌">
-																<!--英语没改-->
-																<input v-model="input_message.education" type="text"
+																<input v-model="input_message.QQ_s" type="text"
 																	class="form-control" placeholder="QQ"
 																	style="width: 20px;">
-																<!--英语没改，换内容了-->
-																<input v-model="input_message.job" type="text"
+																<input v-model="input_message.wechat_s" type="text"
 																	class="form-control" placeholder="微信"
 																	style="width:20px">
-																<input v-model="input_message.phone" type="text"
+																<input v-model="input_message.phone_s" type="text"
 																	class="form-control" placeholder="联系电话"
 																	style="width: 50px;">
+															</div>
+															<!--学生详细信息补充-->
+															<div class="input-group mb-3">
+																<input v-model="input_message.grade_s" type="text"
+																	class="form-control" placeholder="班级"
+																	style="width: 20px;">
+																<input v-model="input_message.specialty_s" type="text"
+																	class="form-control" placeholder="专业"
+																	style="width: 50px;">
+																<input v-model="input_message.home_s" type="text"
+																	class="form-control" placeholder="家庭住址"
+																	style="width: 120px;">
+																<input v-model="input_message.idcard_s" type="text"
+																	class="form-control" placeholder="身份证号">
 															</div>
 															<!--以下是原来的东西，这里想把原来的换成新的，所以集体注释掉，
 															可以从这里面摘取有用的-->
@@ -242,17 +255,15 @@
 																<div class="input-group-prepend">
 																	<span class="input-group-text">家长1的个人信息</span>
 																</div>
-																<input v-model="input_message.political" type="text"
-																	class="form-control" placeholder="政治面貌">
-																<!--英语没改-->
-																<input v-model="input_message.education" type="text"
-																	class="form-control" placeholder="QQ"
+																<input v-model="input_message.name_1" type="text"
+																	class="form-control" placeholder="姓名">
+																<input v-model="input_message.relationship_1" type="text"
+																	class="form-control" placeholder="与学生关系"
 																	style="width: 20px;">
-																<!--英语没改，换内容了-->
-																<input v-model="input_message.job" type="text"
+																<input v-model="input_message.wechat_1" type="text"
 																	class="form-control" placeholder="微信"
 																	style="width:20px">
-																<input v-model="input_message.phone" type="text"
+																<input v-model="input_message.phone_1" type="text"
 																	class="form-control" placeholder="联系电话"
 																	style="width: 50px;">
 															</div>
@@ -260,23 +271,24 @@
 															<!--家长2的个人信息-->
 															<div class="input-group mb-3">
 																<div class="input-group-prepend">
-																	<span class="input-group-text">学生详细信息</span>
+																	<span class="input-group-text">家长2的个人信息</span>
 																</div>
-																<input v-model="input_message.political" type="text"
-																	class="form-control" placeholder="政治面貌">
-																<!--英语没改-->
-																<input v-model="input_message.education" type="text"
-																	class="form-control" placeholder="QQ"
+																<input v-model="input_message.name_2" type="text"
+																	class="form-control" placeholder="姓名">
+																<input v-model="input_message.relationship_2" type="text"
+																	class="form-control" placeholder="与学生关系"
 																	style="width: 20px;">
-																<!--英语没改，换内容了-->
-																<input v-model="input_message.job" type="text"
+																<input v-model="input_message.wechat_2" type="text"
 																	class="form-control" placeholder="微信"
 																	style="width:20px">
-																<input v-model="input_message.phone" type="text"
+																<input v-model="input_message.phone_2" type="text"
 																	class="form-control" placeholder="联系电话"
 																	style="width: 50px;">
 															</div>
 														</form>
+														
+														<!--家庭总人数，目前没需要，先注释掉-->
+														<!--
 														<form class="form-group">
 															<div class="input-group mb-3" style="width:225px;">
 																<div class="input-group-prepend">
@@ -285,55 +297,68 @@
 																<input v-model="input_message.familynum" type="text"
 																	class="form-control" placeholder="人数">
 															</div>
-
 														</form>
+														-->
+														<!--属于班级-->
 														<form class="form-group">
 															<div class="input-group mb-3" style="width:210px;">
+																
 																<div class="input-group-prepend">
 																	<span id="householdcreate_groupnuminput"
-																		class="input-group-text">属于组</span>
+																		class="input-group-text">属于班级</span>
 																</div>
+																
 																<select class="form-control"
 																	v-model="input_message.groupnum">
 																	<option v-for="(group, groupnum, index) in Persons">
 																		{{Groups2['g'+groupnum]}}</option>
 																</select>
+																
 															</div>
+															
 														</form>
+														
 													</div>
 												</div>
-
+												<!--模态框主体止-->
 												<!-- 模态框底部 -->
 												<div class="modal-footer">
 													<button id="bottonaddhd" type="button"
 														v-on:click="Botton_ADD_Household()"
 														class="btn btn-secondary">添加</button>
 												</div>
-												<div id="bottonaddhdalerts"></div>
+												<!--这里等以后维护吧，目前没什么需要-->
+												<div id="bottonaddhdalerts">
+													
+												</div>
 											</div>
 										</div>
 									</div>
+									<!--这里是查找学生-->
 									<button type="button" class="btn btn-info border rounded btn-sm"
-										v-on:click="Botton_Open_Find_People()" data-toggle="modal">查找人</button>
+										v-on:click="Botton_Open_Find_People()" data-toggle="modal">查找学生</button>
 									<div class="modal fade" id="findpeoplemodal">
 										<div class="modal-dialog  modal-lg">
 											<div class="modal-content">
 
 												<!-- 模态框头部 -->
 												<div class="modal-header">
-													<h4 class="modal-title">查找人</h4>
+													<h4 class="modal-title">查找学生</h4>
+													<!--&times是乘号-->
 													<button type="button" class="close"
-														data-dismiss="modal">&times;</button>
+														data-dismiss="modal">&times;
+													</button>
 												</div>
+												<!-- 模态框身体 -->
 												<div class="modal-body">
 													<div class="container form-inline">
 														<div class="input-group mb-3" style="width:170px;">
 															<div class="input-group-prepend">
 																<span class="input-group-text">查找</span>
 															</div>
-															<select class="form-control"
-																v-model="find_people_input.key">
-																<option v-for="(key,index) in find_people_keys">{{key}}
+															<select class="form-control"v-model="find_people_input.key">
+																<option v-for="(key,index) in find_people_keys">
+																	{{key}}
 																</option>
 															</select>
 														</div>
@@ -353,7 +378,7 @@
 										</div>
 									</div>
 								</li>
-								
+								<!---->
 								<li v-for="(group, groupnum, index) in Persons" class="">
 									<div class="btn-group rounded border" style="width: 100%;">
 										<button v-bind:href="'#group'+groupnum" data-toggle="collapse"
@@ -378,37 +403,32 @@
 								<div class="col rounded border bg-white" style="height: 22%;">
 									<div class="row" style="height: 100%;">
 										<div class="col-10 border" style="height: 100%;">
-											<div class="row  border" style="height: 25%;">
-												<div class="col border"><strong>户主</strong></div>
-												<div class="col border">{{print_message.name}}</div>
+											<div class="row  border" style="height: 34%;">
+												<div class="col border"><strong>姓名</strong></div>
+												<div class="col border">{{print_message.name_s}}</div>
 												<div class="col border"><strong>性别</strong></div>
-												<div class="col border">{{print_message.sex}}</div>
-												<div class="col-2 border"><strong>出生年月</strong></div>
-												<div class="col border">{{print_message.birthday}}</div>
+												<div class="col border">{{print_message.sex_s}}</div>
+												<div class="col border"><strong>出生年月</strong></div>
+												<div class="col border">{{print_message.birthday_s}}</div>
 												<div class="col border"><strong>民族</strong></div>
-												<div class="col border">{{print_message.race}}</div>
+												<div class="col border">{{print_message.race_s}}</div>
 											</div>
-											<div class="row border" style="height: 25%;">
-												<div class="col-2 border"><strong>政治面貌</strong></div>
-												<div class="col border">{{print_message.political}}</div>
-												<div class="col-1 border"><strong>学历</strong></div>
-												<div class="col border">{{print_message.education}}</div>
-												<div class="col-2 border"><strong>职务或专长</strong></div>
-												<div class="col border">{{print_message.job}}</div>
+											<div class="row border" style="height: 33%;">
+												<div class="col border"><strong>政治面貌</strong></div>
+												<div class="col border">{{print_message.political_s}}</div>
+												<div class="col border"><strong>QQ</strong></div>
+												<div class="col border">{{print_message.QQ_s}}</div>
+												<div class="col border"><strong>微信</strong></div>
+												<div class="col border">{{print_message.wechat_s}}</div>
 											</div>
-											<div class="row  border" style="height: 25%;">
-												<div class="col-2 border"><strong>身份证</strong></div>
-												<div class="col border">{{print_message.ownerid}}</div>
-												<div class="col-2 border"><strong>联系电话</strong></div>
-												<div class="col border">{{print_message.phone}}</div>
-											</div>
-											<div class="row  border" style="height: 25%;">
-												<div class="col-2 border"><strong>是否建档立卡</strong></div>
-												<div class="col border">{{print_message.fc}}</div>
-												<div class="col-2 border"><strong>家庭总人口</strong></div>
-												<div class="col border">{{print_message.familynum}}</div>
+											<div class="row  border" style="height: 33%;">
+												<div class="col border"><strong>身份证号</strong></div>
+												<div class="col border">{{print_message.idcard_s}}</div>
+												<div class="col border"><strong>联系电话</strong></div>
+												<div class="col border">{{print_message.phone_s}}</div>
 											</div>
 										</div>
+										<!--照片询问一下要求要不要留-->
 										<div class="col rounded border" style="height: 100%;">
 											<div class="row" style="height: 100%;">
 												<div class="col rounded border" style="height: 100%;padding:0px;">
@@ -458,17 +478,16 @@
 															</div>
 														</div>
 														
-
+														<!--修改信息，直接从上边照搬吧-->
 														<button type="button" v-on:click="Botton_Re_Household()"
 															class="btn btn-outline-info btn-sm"
 															style="font-size:10px;line-height: 12px;">修改信息</button>
 														<div class="modal fade" id="rehouseholdmodal">
 															<div class="modal-dialog  modal-lg">
 																<div class="modal-content">
-
 																	<!-- 模态框头部 -->
 																	<div class="modal-header">
-																		<h4 class="modal-title">修改户信息</h4>
+																		<h4 class="modal-title">修改学生信息</h4>
 																		<button type="button" class="close"
 																			data-dismiss="modal">&times;</button>
 																	</div>
@@ -476,105 +495,64 @@
 																	<!-- 模态框主体 -->
 																	<div class="modal-body">
 																		<div class="container">
+																			<!--基本信息表单-->
 																			<form class="form-group">
 																				<div class="input-group mb-3">
 																					<div class="input-group-prepend">
-																						<span
-																							class="input-group-text">户主基本信息</span>
+																						<span class="input-group-text">学生基本信息</span>
 																					</div>
-																					<input v-model="input_message.name"
-																						type="text" class="form-control"
-																						placeholder="姓名">
-																					<input
-																						v-model="input_message.ownerid"
-																						type="text" class="form-control"
-																						placeholder="身份证"
+																					<input v-model="input_message.name_s" type="text"
+																						class="form-control" placeholder="姓名">
+																					<input v-model="input_message.id_s" type="text"
+																						class="form-control" placeholder="学号"
 																						style="width: 150px;">
-																					<input v-model="input_message.sex"
-																						type="text" class="form-control"
-																						placeholder="性别"
+																					<input v-model="input_message.sex_s" type="text"
+																						class="form-control" placeholder="性别"
 																						style="width: 20px;">
-																					<input
-																						v-model="input_message.birthday"
-																						type="text" class="form-control"
-																						placeholder="出生年月">
-																					<input v-model="input_message.race"
-																						type="text" class="form-control"
-																						placeholder="种族">
+																					<input v-model="input_message.birthday_s" type="text"
+																						class="form-control" placeholder="出生年月">
+																					<input v-model="input_message.race_s" type="text"
+																						class="form-control" placeholder="民族"><br>
 																				</div>
+																				<!--学生详细信息-->
 																				<div class="input-group mb-3">
 																					<div class="input-group-prepend">
-																						<span
-																							class="input-group-text">户主工作信息</span>
+																						<span class="input-group-text">学生详细信息</span>
 																					</div>
-																					<input
-																						v-model="input_message.political"
-																						type="text" class="form-control"
-																						placeholder="政治面貌">
-																					<input
-																						v-model="input_message.education"
-																						type="text" class="form-control"
-																						placeholder="学历"
+																					<input v-model="input_message.political_s" type="text"
+																						class="form-control" placeholder="政治面貌">
+																					<input v-model="input_message.QQ_s" type="text"
+																						class="form-control" placeholder="QQ"
 																						style="width: 20px;">
-																					<input v-model="input_message.job"
-																						type="text" class="form-control"
-																						placeholder="职务或专长">
-																					<input v-model="input_message.phone"
-																						type="text" class="form-control"
-																						placeholder="联系电话"
-																						style="width: 50px;">
-																					<input v-model="input_message.fc"
-																						type="text" class="form-control"
-																						placeholder="是否建立档立卡"
+																					<input v-model="input_message.wechat_s" type="text"
+																						class="form-control" placeholder="微信"
+																						style="width:20px">
+																					<input v-model="input_message.phone_s" type="text"
+																						class="form-control" placeholder="联系电话"
 																						style="width: 50px;">
 																				</div>
+																				<!--学生详细信息补充-->
 																				<div class="input-group mb-3">
-																					<div class="input-group-prepend">
-																						<span
-																							class="input-group-text">家庭信息</span>
-																					</div>
-																					<textarea
-																						v-model="input_message.income"
-																						class="form-control" rows="7"
-																						placeholder="年均收入及来源"></textarea>
-																					<textarea
-																						v-model="input_message.fielding"
-																						class="form-control" rows="7"
-																						placeholder="耕地面积"></textarea>
-																					<textarea
-																						v-model="input_message.breeding"
-																						class="form-control" rows="7"
-																						placeholder="养殖情况"></textarea>
-																					<textarea
-																						v-model="input_message.causeofpoverty"
-																						class="form-control" rows="7"
-																						placeholder="致贫原因"></textarea>
-																					<textarea
-																						v-model="input_message.remark"
-																						class="form-control" rows="7"
-																						placeholder="备注"></textarea>
+																					<input v-model="input_message.grade_s" type="text"
+																						class="form-control" placeholder="班级"
+																						style="width: 20px;">
+																					<input v-model="input_message.specialty_s" type="text"
+																						class="form-control" placeholder="专业"
+																						style="width: 50px;">
+																					<input v-model="input_message.home_s" type="text"
+																						class="form-control" placeholder="家庭住址"
+																						style="width: 120px;">
+																					<input v-model="input_message.idcard_s" type="text"
+																						class="form-control" placeholder="身份证号">
 																				</div>
 																			</form>
-																			<form class="form-group">
-																				<div class="input-group mb-3"
-																					style="width:225px;">
-																					<div class="input-group-prepend">
-																						<span
-																							class="input-group-text">家庭总人口</span>
-																					</div>
-																					<input
-																						v-model="input_message.familynum"
-																						type="text" class="form-control"
-																						placeholder="人数">
-																				</div>
-
-																			</form>
+																			<!--修改班级-->
 																			<form class="form-group">
 																				<div class="input-group mb-3"
 																					style="width:210px;">
 																					<div class="input-group-prepend">
 																						<span
-																							class="input-group-text">属于组</span>
+																							class="input-group-text">属于班级</span>
 																					</div>
 																					<select class="form-control"
 																						v-model="input_message.groupnum">
@@ -587,7 +565,6 @@
 																			</form>
 																		</div>
 																	</div>
-
 																	<!-- 模态框底部 -->
 																	<div class="modal-footer">
 																		<button type="button"
@@ -598,6 +575,8 @@
 																</div>
 															</div>
 														</div>
+														
+														
 														<button type="button"
 															v-on:click="Botton_Isdelete()"
 															class="btn btn-outline-info btn-sm"
@@ -636,1010 +615,63 @@
 										</div>
 									</div>
 								</div>
-								<div class="col rounded border bg-white" style="height: 23%;">
-									<div class="row border" style="height: 34%;">
-										<div class="col-2 border"><strong>家庭年均收入以及主要来源</strong></div>
-										<div class="col border">{{print_message.income}}</div>
-									</div>
-									<div class="row border" style="height: 33%;">
-										<div class="col-2 border"><strong>耕地面积</strong></div>
-										<div class="col border">{{print_message.fielding}}</div>
-									</div>
-									<div class="row border" style="height: 33%;">
-										<div class="col-2 border"><strong>养殖情况</strong></div>
-										<div class="col border">{{print_message.breeding}}</div>
-									</div>
-								</div>
-								<div class="col rounded border bg-white" style="height: 33%;overflow: auto;">
-									<div class="row border rounded">
-										<div class="col-9"><strong>家庭主要成员</strong></div>
-										<div class="col"><button type="button" class="btn btn-outline-info btn-sm"
-												v-on:click="Botton_Refrash_input_viliger()"
-												data-toggle="modal">添加人口</button></div>
-										<div class="modal fade" id="newviligermodal">
-											<div class="modal-dialog  modal-lg">
-												<div class="modal-content">
-
-													<!-- 模态框头部 -->
-													<div class="modal-header">
-														<h4 class="modal-title">添加村民</h4>
-														<button type="button" class="close"
-															data-dismiss="modal">&times;</button>
-													</div>
-													<div class="modal-body">
-														<div class="container">
-															<div class="input-group mb-3">
-																<div class="input-group-prepend">
-																	<span class="input-group-text">村民信息</span>
-																</div>
-																<input v-model="input_viliger.name" type="text"
-																	class="form-control" placeholder="姓名">
-																<input v-model="input_viliger.id" type="text"
-																	class="form-control" placeholder="身份证"
-																	style="width: 120px;">
-																<input v-model="input_viliger.sex" type="text"
-																	class="form-control" placeholder="性别">
-															</div>
-															<div class="input-group mb-3">
-																<input v-model="input_viliger.birthday" type="text"
-																	class="form-control" placeholder="电话号">
-																<input v-model="input_viliger.job" type="text"
-																	class="form-control" placeholder="职务或特长">
-																<input v-model="input_viliger.relation" type="text"
-																	class="form-control" placeholder="与户主关系"
-																	style="width: 40px;">
-															</div>
-														</div>
-													</div>
-													<!-- 模态框底部 -->
-													<div class="modal-footer">
-														<button type="button" v-on:click="Botton_ADD_Viliger()"
-															class="btn btn-secondary">新建</button>
-													</div>
-													<div id="bottonaddvgalerts"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<table class="table table-condensed table-hover table-sm">
-										<thead>
-											<tr>
-												<th>姓名</th>
-												<th>性别</th>
-												<th>身份证</th>
-												<th>电话号</th>
-												<th>职业或专长</th>
-												<th>与户主关系</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr v-for="(viliger, id, index) in print_message.viligers">
-												<td>{{viliger.name}}</td>
-												<td>{{viliger.sex}}</td>
-												<td>{{viliger.id}}</td>
-												<td>{{viliger.birthday}}</td>
-												<td>{{viliger.job}}</td>
-												<td>{{viliger.relation}}</td>
-												<td>
-													<div class="col"><button class="btn border radio"
-															v-on:click="Botton_DEL_Viliger(viliger.id)">x</button></div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+								
+								<!--这里是家长信息-->
 								<div class="col rounded border bg-white" style="height: 22%;">
-									<div class="row border" style="height: 33%;">
-										<div class="col-2 border"><strong>致贫原因</strong></div>
-										<div class="col border">{{print_message.causeofpoverty}}</div>
+									<!--家长1的信息-->
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>1号家长的姓名</strong></div>
+										<div class="col border">{{print_message.name_1}}</div>
+										<div class="col border"><strong>1号家长与学生关系</strong></div>
+										<div class="col border">{{print_message.relationship_1}}</div>
 									</div>
-									<div class="row border" style="height: 66%;">
-										<div class="col-2 border"><strong>备注</strong></div>
-										<div class="col border">{{print_message.remark}}</div>
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>1号家长的微信</strong></div>
+										<div class="col border">{{print_message.wechat_1}}</div>
+										<div class="col border"><strong>1号家长的联系电话</strong></div>
+										<div class="col border">{{print_message.phone_1}}</div>
+									</div>
+									<!--家长2的信息-->
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>2号家长的姓名</strong></div>
+										<div class="col border">{{print_message.name_2}}</div>
+										<div class="col border"><strong>2号家长与学生关系</strong></div>
+										<div class="col border">{{print_message.relationship_2}}</div>
+									</div>
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>2号家长的微信</strong></div>
+										<div class="col border">{{print_message.wechat_2}}</div>
+										<div class="col border"><strong>2号家长的联系电话</strong></div>
+										<div class="col border">{{print_message.phone_2}}</div>
 									</div>
 								</div>
+								<!--这里想插入一个照片，大小一直不对-->
+								<!--
+								<div class="imgback" style="height: 56%">
+									<img src="./照片/mybackground.png">
+								</div>
+								-->
 							</div>
 						</div>
-
 					</div>
-
 					
-			
-
-
 					<!--页面 党建信息-->
-					<div id="PartyInformation" class="container-fluid tab-pane fade" style="height: 100%;">
-						<div class="container-fluid bg-light">
-							<div class="border rounded row">
-								<button type="button" v-on:click="Botton_Refrash_input_message()"
-									class="btn btn-outline-info border rounded btn-lg" data-toggle="modal"
-									data-target="#newpartymodal">登记党建活动</button>
-								
-								<!--
-								<div class="input-group-prepend border rounded">
-									<span
-										class="input-group-text">排序方式</span>
-								</div>
-								<select class="form-control-lg border rounded" 
-									v-model="order" style="" @click = "Re_Order()">
-									<option
-										v-for="(value, key, index) in translation">
-										{{key}}
-									</option>
-								</select>
-								-->
-							
-							</div>
-							<div class="modal fade" id="newpartymodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">登记党建活动</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">活动信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="活动名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="活动时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">活动类型及内容</span>
-													</div>
-													<input v-model="input_message.unit" type="text" class="form-control"
-														placeholder="活动类型及内容概括">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_ADD_Party()"
-												class="btn btn-secondary">新建</button>
-										</div>
-										<div id="bottonaddptalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container-fluid bg-light border rounded" style="height: 100%;overflow: auto;">
-							<table class="table table-condensed table-hover table-sm">
-								<thead>
-									<tr>
-										<th>序号</th>
-										<th>活动名称</th>
-										<th>负责人姓名</th>
-										<th>负责人电话</th>
-										<th>活动简要信息</th>
-										<th>活动时间</th>
-										<th>备注</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr v-for="(party, uid, index) in Partys">
-										<td>{{index+1}}</td>
-										<td>{{party.name}}</td>
-										<td>{{party.ownername}}</td>
-										<td>{{party.ownerphone}}</td>
-										<td>{{party.unit}}</td>
-										<td>{{party.begindate}}</td>
-										<td>{{party.remark}}</td>
-										<td>
-											<div class="col btn-group-sm">
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Dis_Party_message(uid)">详情</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Re_Party(uid)">修改</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_DEL_Party(uid)">删除</button>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="modal fade" id="repartymodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">修改活动</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">活动信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="项目名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="申请时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">活动类型及内容</span>
-													</div>
-													<input v-model="input_message.unit" type="text" class="form-control"
-														placeholder="活动类型及内容概括">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_Cg_Party()"
-												class="btn btn-secondary">修改</button>
-										</div>
-										<div id="bottoncgptalert"></div>
-									</div>
-								</div>
-							</div>
-							<div class="modal fade" id="displaypartymessagemodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">项目活动内容以及参与人士</h4>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<textarea v-model="input_message.message" class="form-control"
-													rows="12"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button"
-												v-on:click="Botton_Cg_Party_message(input_message.uid)"
-												class="btn btn-secondary">确定</button>
-										</div>
-										<div id="bottondsptalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+					<!--已删除，想还原请到recycle bin_1-->
+					
 					<!--页面 建设信息-->
-					<div id="ConstructionInformation" class="container-fluid tab-pane fade" style="height: 100%;">
-						<div class="container-fluid bg-light">
-							<div class="border rounded row">
-								<button type="button" v-on:click="Botton_Refrash_input_message()"
-									class="btn btn-outline-info border rounded btn-lg" data-toggle="modal"
-									data-target="#newconstructionmodal">新建项目</button>
-								
-								<!--
-								<div class="input-group-prepend border rounded">
-									<span
-										class="input-group-text">排序方式</span>
-								</div>
-								<select class="form-control-lg border rounded" 
-									v-model="order" style="" @click = "Re_Order()">
-									<option
-										v-for="(value, key, index) in translation">
-										{{key}}
-									</option>
-								</select>
-								-->
-							
-							</div>
-							<div class="modal fade" id="newconstructionmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">新建项目</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">项目信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="项目名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="申请时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">申请单位信息</span>
-													</div>
-													<input v-model="input_message.unit" type="text" class="form-control"
-														placeholder="申请单位">
-													<input v-model="input_message.unitphone" type="text"
-														class="form-control" placeholder="单位电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_ADD_Construction()"
-												class="btn btn-secondary">新建</button>
-										</div>
-										<div id="bottonaddctalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container-fluid bg-light border rounded" style="height: 100%;overflow: auto;">
-							<table class="table table-condensed table-hover table-sm">
-								<thead>
-									<tr>
-										<th>序号</th>
-										<th>项目名称</th>
-										<th>负责人姓名</th>
-										<th>负责人电话</th>
-										<th>申请单位</th>
-										<th>单位电话</th>
-										<th>申请时间</th>
-										<th>备注</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr v-for="(construction, uid, index) in Constructions">
-										<td>{{index+1}}</td>
-										<td>{{construction.name}}</td>
-										<td>{{construction.ownername}}</td>
-										<td>{{construction.ownerphone}}</td>
-										<td>{{construction.unit}}</td>
-										<td>{{construction.unitphone}}</td>
-										<td>{{construction.begindate}}</td>
-										<td>{{construction.remark}}</td>
-										<td>
-											<div class="col btn-group-sm">
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Dis_Construction_message(uid)">详情</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Re_Construction(uid)">修改</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_DEL_Construction(uid)">删除</button>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="modal fade" id="reconstructionmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">修改项目</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">项目信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="项目名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="申请时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">申请单位信息</span>
-													</div>
-													<input v-model="input_message.unit" type="text" class="form-control"
-														placeholder="申请单位">
-													<input v-model="input_message.unitphone" type="text"
-														class="form-control" placeholder="单位电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_Cg_Construction()"
-												class="btn btn-secondary">修改</button>
-										</div>
-										<div id="bottoncgctalert"></div>
-									</div>
-								</div>
-							</div>
-							<div class="modal fade" id="displayconstructionmessagemodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">项目详细信息和进度</h4>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<textarea v-model="input_message.message" class="form-control"
-													rows="12"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button"
-												v-on:click="Botton_Cg_Construction_message(input_message.uid)"
-												class="btn btn-secondary">确定</button>
-										</div>
-										<div id="bottondsctalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
-					<div id="EquipmentsInformation" class="container-fluid tab-pane fade" style="height: 100%;">
-						<div class="container-fluid bg-light">
-							<div class="btn-group border rounded row">
-								<button type="button" v-on:click="Botton_Refrash_input_message()"
-									class="btn btn-outline-info border rounded btn-lg" data-toggle="modal"
-									data-target="#newequipmentmodal">登记设备</button>
-							</div>
-							<div class="modal fade" id="newequipmentmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">登记设备</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">设备信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="设备名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="登记时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_ADD_Equipment()"
-												class="btn btn-secondary">新建</button>
-										</div>
-										<div id="bottonaddeqalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container-fluid bg-light border rounded" style="height: 100%;overflow: auto;">
-							<table class="table table-condensed table-hover table-sm">
-								<thead>
-									<tr>
-										<th>序号</th>
-										<th>设备名称</th>
-										<th>负责人姓名</th>
-										<th>负责人电话</th>
-										<th>申请时间</th>
-										<th>备注</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr v-for="(equipment, uid, index) in Equipments">
-										<td>{{index+1}}</td>
-										<td>{{equipment.name}}</td>
-										<td>{{equipment.ownername}}</td>
-										<td>{{equipment.ownerphone}}</td>
-										<td>{{equipment.begindate}}</td>
-										<td>{{equipment.remark}}</td>
-										<td>
-											<div class="col btn-group-sm">
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Dis_Equipment_message(uid)">详情</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Re_Equipment(uid)">修改</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_DEL_Equipment(uid)">删除</button>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="modal fade" id="reequipmentmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">修改设备</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">设备信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="设备名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="登记时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_Cg_Equipment()"
-												class="btn btn-secondary">修改</button>
-										</div>
-										<div id="bottoncgeqalert"></div>
-									</div>
-								</div>
-							</div>
-							<div class="modal fade" id="displayequipmentmessagemodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">设备详细信息和用途</h4>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<textarea v-model="input_message.message" class="form-control"
-													rows="12"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button"
-												v-on:click="Botton_Cg_Equipment_message(input_message.uid)"
-												class="btn btn-secondary">确定</button>
-										</div>
-										<div id="bottondseqalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<div id="AlleviationsInformation" class="container-fluid tab-pane fade" style="height: 100%;">
-						<div class="container-fluid bg-light">
-							<div class="btn-group border rounded row">
-								<button type="button" v-on:click="Botton_Refrash_input_message()"
-									class="btn btn-outline-info border rounded btn-lg" data-toggle="modal"
-									data-target="#newalleviationmodal">登记扶贫记录</button>
-							</div>
-							<div class="modal fade" id="newalleviationmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">登记扶贫记录</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">扶贫信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="扶贫记录标称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="登记时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_ADD_Alleviation()"
-												class="btn btn-secondary">新建</button>
-										</div>
-										<div id="bottonaddalalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container-fluid bg-light border rounded" style="height: 100%;overflow: auto;">
-							<table class="table table-condensed table-hover table-sm">
-								<thead>
-									<tr>
-										<th>序号</th>
-										<th>扶贫名称</th>
-										<th>负责人姓名</th>
-										<th>负责人电话</th>
-										<th>申请时间</th>
-										<th>备注</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr v-for="(alleviation, uid, index) in Alleviations">
-										<td>{{index+1}}</td>
-										<td>{{alleviation.name}}</td>
-										<td>{{alleviation.ownername}}</td>
-										<td>{{alleviation.ownerphone}}</td>
-										<td>{{alleviation.begindate}}</td>
-										<td>{{alleviation.remark}}</td>
-										<td>
-											<div class="col btn-group-sm">
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Dis_Alleviation_message(uid)">详情</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Re_Alleviation(uid)">修改</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_DEL_Alleviation(uid)">删除</button>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="modal fade" id="realleviationmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">修改设备</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">设备信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="设备名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="登记时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_Cg_Alleviation()"
-												class="btn btn-secondary">修改</button>
-										</div>
-										<div id="bottoncgalalert"></div>
-									</div>
-								</div>
-							</div>
-							<div class="modal fade" id="displayalleviationmessagemodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">扶贫详细信息</h4>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<textarea v-model="input_message.message" class="form-control"
-													rows="12"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button"
-												v-on:click="Botton_Cg_Alleviation_message(input_message.uid)"
-												class="btn btn-secondary">确定</button>
-										</div>
-										<div id="bottondsalalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<div id="DogsInformation" class="container-fluid tab-pane fade" style="height: 100%;">
-						<div class="container-fluid bg-light">
-							<div class="btn-group border rounded row">
-								<button type="button" v-on:click="Botton_Refrash_input_message()"
-									class="btn btn-outline-info border rounded btn-lg" data-toggle="modal"
-									data-target="#newdogmodal">登记雪橇犬</button>
-							</div>
-							<div class="modal fade" id="newdogmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">登记雪橇犬</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">雪橇犬信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="雪橇犬名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="登记时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_ADD_Dog()"
-												class="btn btn-secondary">新建</button>
-										</div>
-										<div id="bottonadddgalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container-fluid bg-light border rounded" style="height: 100%;overflow: auto;">
-							<table class="table table-condensed table-hover table-sm">
-								<thead>
-									<tr>
-										<th>序号</th>
-										<th>雪橇犬名称</th>
-										<th>负责人姓名</th>
-										<th>负责人电话</th>
-										<th>申请时间</th>
-										<th>备注</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr v-for="(dog, uid, index) in Dogs">
-										<td>{{index+1}}</td>
-										<td>{{dog.name}}</td>
-										<td>{{dog.ownername}}</td>
-										<td>{{dog.ownerphone}}</td>
-										<td>{{dog.begindate}}</td>
-										<td>{{dog.remark}}</td>
-										<td>
-											<div class="col btn-group-sm">
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Dis_Dog_message(uid)">详情</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_Re_Dog(uid)">修改</button>
-												<button class="btn border radio btn-outline-light text-black-50"
-													v-on:click="Botton_DEL_Dog(uid)">删除</button>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="modal fade" id="redogmodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">修改雪橇犬信息</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">雪橇犬信息</span>
-													</div>
-													<input v-model="input_message.name" type="text" class="form-control"
-														placeholder="雪橇犬名称">
-													<input v-model="input_message.begindate" type="text"
-														class="form-control" placeholder="登记时间">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
-														<span class="input-group-text">负责人信息</span>
-													</div>
-													<input v-model="input_message.ownername" type="text"
-														class="form-control" placeholder="负责人姓名">
-													<input v-model="input_message.ownerphone" type="text"
-														class="form-control" placeholder="负责人电话">
-												</div>
-												<textarea v-model="input_message.remark" class="form-control" rows="7"
-													placeholder="备注"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_Cg_Dog()"
-												class="btn btn-secondary">修改</button>
-										</div>
-										<div id="bottoncgdgalert"></div>
-									</div>
-								</div>
-							</div>
-							<div class="modal fade" id="displaydogmessagemodal">
-								<div class="modal-dialog  modal-lg">
-									<div class="modal-content">
-										<!-- 模态框头部 -->
-										<div class="modal-header">
-											<h4 class="modal-title">雪橇犬详细信息</h4>
-										</div>
-										<div class="modal-body">
-											<div class="container form-group">
-												<textarea v-model="input_message.message" class="form-control"
-													rows="12"></textarea>
-											</div>
-										</div>
-										<!-- 模态框底部 -->
-										<div class="modal-footer">
-											<button type="button" v-on:click="Botton_Cg_Dog_message(input_message.uid)"
-												class="btn btn-secondary">确定</button>
-										</div>
-										<div id="bottondsdgalert"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
+					<!--已删除，想还原请到recycle bin_2-->
+					
+					<!--页面 登记设备-->
+					<!--已删除，想还原请到recycle bin_3-->
+					
+					<!--页面 登记扶贫记录-->
+					<!--已删除，想还原请到recycle bin_4-->
+					
+					<!--页面 登记雪橇犬-->
+					<!--已删除，想还原请到recycle bin_5-->
+					
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 	<script src="./bootstrap-fileinput/js/fileinput.js" type="text/javascript" charset="utf-8"></script>

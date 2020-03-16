@@ -1,0 +1,34 @@
+input_message.name_s		"姓名"
+input_message.id_s			"学号"
+input_message.sex_s		"性别"
+input_message.birthday_s		"出生年月"
+input_message.race_s		"民族"
+input_message.political_s		"政治面貌"
+input_message.QQ_s		"QQ"
+input_message.wechat_s		"微信"
+input_message.phone_s		"联系电话"
+input_message.grade_s		"班级"
+input_message.specialty_s		"专业"
+input_message.home_s		"家庭住址"
+input_message.idcard_s		"身份证号"
+-------------
+ownerid到vue.js下需要注意一下
+-------------
+input_message.name_1		"1号家长的姓名"
+input_message.relationship_1		"1号家长与学生关系"
+input_message.wechat_1		"1号家长的微信"
+input_message.phone_1		"1号家长的联系电话"
+input_message.name_2		"2号家长的姓名"
+input_message.relationship_2		"2号家长与学生关系"
+input_message.wechat_2		"2号家长的微信"
+input_message.phone_2		"2号家长的联系电话"
+
+-----------
+index_vue.js定义需要全变
+-----------
+index_vue.js查找有问题
+-----------
+询问导员照片留不留
+-----------
+index.html差不多完成，明天入手index_vue.js
+-----------

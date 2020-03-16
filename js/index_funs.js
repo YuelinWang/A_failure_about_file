@@ -45,13 +45,13 @@ var is_obj_empty = (obj)=>{
 }
 
 /*
-    按钮功能：添加组
-    在缓存数据和数据库中添加一个新组
+    按钮功能：添加班级
+    在缓存数据和数据库中添加一个新班级
 */
 var Botton_ADD_Group = ()=>{
     try{
         if(Persons_Vue.input_groupname.groupname==''){
-            Alert("错误","组号不能为空！","warning","#bottonaddgpalerts");
+            Alert("错误","班级号不能为空！","warning","#bottonaddgpalerts");
         }else{
             $("#newgroupmodal").modal('hide');
             maxgroupnum++;
@@ -64,7 +64,7 @@ var Botton_ADD_Group = ()=>{
             Vue.set(Persons_Vue.Groups2,'g'+groupnum,groupname);
             newGroup = {groupnum:groupnum,groupname:groupname};
             window.ADD_Group_sql(newGroup); 
-            Alert("成功","创建组\""+groupname+"\"成功","success"); 
+            Alert("成功","创建班级\""+groupname+"\"成功","success"); 
             //alert('新建成功');
         }
     }catch(err){
@@ -73,18 +73,18 @@ var Botton_ADD_Group = ()=>{
 }
 
 /*
-    按钮功能：添加户
+    按钮功能：添加学生
     将输入缓存推入缓存数据和数据库
     undefined，boolean，number，string，null 等基本数据类型 = 赋值
     对象、数组、函数 = 引用 （相当于地址赋值）
 */
 var Botton_ADD_Household = ()=>{
     try{
-        if( Persons_Vue.input_message.groupnum==""||
-            Persons_Vue.input_message.name==""||
-            Persons_Vue.input_message.ownerid==""
+        if( Persons_Vue.input_message.name_s==""||
+            Persons_Vue.input_message.id_s==""||
+            Persons_Vue.input_message.groupnum==""
         ){
-            Alert("错误","户主姓名、身份证、组号为必填项","warning","#bottonaddhdalerts");
+            Alert("错误","姓名、学号、班级为必填项","warning","#bottonaddhdalerts");
         }else{
             $("#newhouseholdmodal").modal('hide');
             console.log(Persons_Vue.input_message);
@@ -96,7 +96,7 @@ var Botton_ADD_Household = ()=>{
             Vue.set(Persons_Vue.Persons[newhousehold.groupnum],newhousehold.ownerid,newhousehold);
             window.ADD_Household_sql(newhousehold);
             Vue.set(Persons_Vue.Persons[newhousehold.groupnum][newhousehold.ownerid],'viligers',{});
-            Alert("成功","创建户\""+newhousehold.name+"\"成功","success"); 
+            Alert("成功","创建学生\""+newhousehold.name+"\"成功","success"); 
             /*
             for(obj in Persons_Vue.input_message)
                 Vue.set(Persons_Vue.input_message,obj,'');
@@ -110,6 +110,7 @@ var Botton_ADD_Household = ()=>{
 /*
     按钮功能：添加人
 */
+/*
 var Botton_ADD_Viliger = ()=>{
     try{
         if( Persons_Vue.input_viliger.name==""||
@@ -135,7 +136,7 @@ var Botton_ADD_Viliger = ()=>{
         console.log(err);
     }
 }
-
+*/
 /*
     按钮功能：删除组
     删除指定组，如果非空则反馈无法删除
