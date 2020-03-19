@@ -32,3 +32,8 @@ index_vue.js查找有问题
 -----------
 index.html差不多完成，明天入手index_vue.js
 -----------
+
+
+
+-----------
+vue v-if 用bool值判断

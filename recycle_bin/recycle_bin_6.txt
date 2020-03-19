@@ -1,0 +1,184 @@
+										<div class="col rounded border" style="height: 100%;">
+											<div class="row" style="height: 100%;">
+												<div class="col rounded border" style="height: 100%;padding:0px;">
+													<img :src="'.\\照片\\'+print_message.photo" class="img-thumbnail img-responsive">
+												</div>
+												<div class="col-3 rounded border" style="height: 100%;">
+													<div class="row btn-group-vertical" style="height: 100%;">
+														<button type="button"
+															v-on:click="Botton_Re_Photo()"
+															class="btn btn-outline-info btn-sm"
+															style="font-size:10px;line-height: 12px;">更换照片</button>
+
+														<div class="modal fade" id="rehouseholdphotomodal">
+															<div class="modal-dialog  modal-lg">
+																<div class="modal-content">
+
+																	<!-- 模态框头部 -->
+																	<div class="modal-header">
+																		<h4 class="modal-title">更换照片</h4>
+																		<button type="button" class="close"
+																			data-dismiss="modal">&times;</button>
+																	</div>
+
+																	<!-- 模态框主体 -->
+																	<div class="modal-body">
+																		<div class="input-group mb-3">请将照片放在'照片'文件夹下</div>
+																		<div class="input-group mb-3">
+																			<div class="input-group-prepend">
+																			<span
+																				class="input-group-text">. /照片/</span>
+																			</div>
+
+																			<input v-model="input_message.photo"
+																				type="text" class="form-control">
+						
+																		</div>
+																	</div>
+
+																	<!-- 模态框底部 -->
+																	<div class="modal-footer">
+																		<button type="button"
+																			v-on:click="Botton_Cg_Photo()"
+																			class="btn btn-secondary">修改</button>
+																	</div>
+																	<div id="bottonrehdphalerts"></div>
+																</div>
+															</div>
+														</div>
+														
+														<!--修改信息，直接从上边照搬吧-->
+														<button type="button" v-on:click="Botton_Re_Household()"
+															class="btn btn-outline-info btn-sm"
+															style="font-size:10px;line-height: 12px;">修改信息</button>
+														<div class="modal fade" id="rehouseholdmodal">
+															<div class="modal-dialog  modal-lg">
+																<div class="modal-content">
+																	<!-- 模态框头部 -->
+																	<div class="modal-header">
+																		<h4 class="modal-title">修改学生信息</h4>
+																		<button type="button" class="close"
+																			data-dismiss="modal">&times;</button>
+																	</div>
+
+																	<!-- 模态框主体 -->
+																	<div class="modal-body">
+																		<div class="container">
+																			<!--基本信息表单-->
+																			<form class="form-group">
+																				<div class="input-group mb-3">
+																					<div class="input-group-prepend">
+																						<span class="input-group-text">学生基本信息</span>
+																					</div>
+																					<input v-model="input_message.name_s" type="text"
+																						class="form-control" placeholder="姓名">
+																					<input v-model="input_message.id_s" type="text"
+																						class="form-control" placeholder="学号"
+																						style="width: 150px;">
+																					<input v-model="input_message.sex_s" type="text"
+																						class="form-control" placeholder="性别"
+																						style="width: 20px;">
+																					<input v-model="input_message.birthday_s" type="text"
+																						class="form-control" placeholder="出生年月">
+																					<input v-model="input_message.race_s" type="text"
+																						class="form-control" placeholder="民族"><br>
+																				</div>
+																				<!--学生详细信息-->
+																				<div class="input-group mb-3">
+																					<div class="input-group-prepend">
+																						<span class="input-group-text">学生详细信息</span>
+																					</div>
+																					<input v-model="input_message.political_s" type="text"
+																						class="form-control" placeholder="政治面貌">
+																					<input v-model="input_message.QQ_s" type="text"
+																						class="form-control" placeholder="QQ"
+																						style="width: 20px;">
+																					<input v-model="input_message.wechat_s" type="text"
+																						class="form-control" placeholder="微信"
+																						style="width:20px">
+																					<input v-model="input_message.phone_s" type="text"
+																						class="form-control" placeholder="联系电话"
+																						style="width: 50px;">
+																				</div>
+																				<!--学生详细信息补充-->
+																				<div class="input-group mb-3">
+																					<input v-model="input_message.grade_s" type="text"
+																						class="form-control" placeholder="班级"
+																						style="width: 20px;">
+																					<input v-model="input_message.specialty_s" type="text"
+																						class="form-control" placeholder="专业"
+																						style="width: 50px;">
+																					<input v-model="input_message.home_s" type="text"
+																						class="form-control" placeholder="家庭住址"
+																						style="width: 120px;">
+																					<input v-model="input_message.idcard_s" type="text"
+																						class="form-control" placeholder="身份证号">
+																				</div>
+																			</form>
+																			<!--修改班级-->
+																			<form class="form-group">
+																				<div class="input-group mb-3"
+																					style="width:210px;">
+																					<div class="input-group-prepend">
+																						<span
+																							class="input-group-text">属于班级</span>
+																					</div>
+																					<select class="form-control"
+																						v-model="input_message.groupnum">
+																						<option
+																							v-for="(group, groupnum, index) in Persons">
+																							{{Groups2['g'+groupnum]}}
+																						</option>
+																					</select>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																	<!-- 模态框底部 -->
+																	<div class="modal-footer">
+																		<button type="button"
+																			v-on:click="Botton_Cg_Household()"
+																			class="btn btn-secondary">修改</button>
+																	</div>
+																	<div id="bottonrehdalerts"></div>
+																</div>
+															</div>
+														</div>
+														
+														
+														<button type="button"
+															v-on:click="Botton_Isdelete()"
+															class="btn btn-outline-info btn-sm"
+															style="font-size:10px;line-height: 12px;">删除该户</button>
+														<div class="modal fade" id="delhouseholdmodal">
+															<div class="modal-dialog  modal-lg">
+																<div class="modal-content">
+
+																	<!-- 模态框头部 -->
+																	<div class="modal-header">
+																		<h4 class="modal-title">确认删除该户？</h4>
+																		<button type="button" class="close"
+																			data-dismiss="modal">&times;</button>
+																	</div>
+
+																	<!-- 模态框主体 -->
+																	<div class="modal-body">
+																		<div class="container">
+																			
+																		</div>
+																	</div>
+
+																	<!-- 模态框底部 -->
+																	<div class="modal-footer">
+																		<button type="button"
+																			v-on:click="Botton_DEL_Household(print_message.ownerid)"
+																			class="btn btn-secondary">删除</button>
+																	</div>
+																	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>

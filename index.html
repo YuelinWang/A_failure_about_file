@@ -64,6 +64,12 @@
 		</div>
 	</div>
 
+
+
+
+
+
+
 	<div id="top_bottoms" style="height: 6%;">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -401,249 +407,86 @@
 							</ul>
 
 							<!--信息面板-->
+							<!--
+							input-group mb-3
+							form-group
+							form-control
+							input-group-prepend
+							-->
 							<div id="housholdinfodisplay" class="bg-light col" style="height: 100%;overflow: auto;">
-								<div class="col rounded border bg-white" style="height: 22%;">
-									<div class="row" style="height: 100%;">
-										<div class="col-10 border" style="height: 100%;">
-											<div class="row  border" style="height: 34%;">
-												<div class="col border"><strong>姓名</strong></div>
-												<div class="col border">{{print_message.name_s}}</div>
-												<div class="col border"><strong>性别</strong></div>
-												<div class="col border">{{print_message.sex_s}}</div>
-												<div class="col border"><strong>出生年月</strong></div>
-												<div class="col border">{{print_message.birthday_s}}</div>
-												<div class="col border"><strong>民族</strong></div>
-												<div class="col border">{{print_message.race_s}}</div>
-											</div>
-											<div class="row border" style="height: 33%;">
-												<div class="col border"><strong>政治面貌</strong></div>
-												<div class="col border">{{print_message.political_s}}</div>
-												<div class="col border"><strong>QQ</strong></div>
-												<div class="col border">{{print_message.QQ_s}}</div>
-												<div class="col border"><strong>微信</strong></div>
-												<div class="col border">{{print_message.wechat_s}}</div>
-											</div>
-											<div class="row  border" style="height: 33%;">
-												<div class="col border"><strong>身份证号</strong></div>
-												<div class="col border">{{print_message.idcard_s}}</div>
-												<div class="col border"><strong>联系电话</strong></div>
-												<div class="col border">{{print_message.phone_s}}</div>
-											</div>
+								<!--这里是学生信息-->
+								<div class="col rounded border bg-white" style="height: 22%;text-align: center;">
+									<div class="row  border" style="height: 25%;">
+										<div style="margin: 0 auto;text-align: center;">
+											----------学生个人信息----------
 										</div>
-										<!--照片询问一下要求要不要留-->
-										<div class="col rounded border" style="height: 100%;">
-											<div class="row" style="height: 100%;">
-												<div class="col rounded border" style="height: 100%;padding:0px;">
-													<img :src="'.\\照片\\'+print_message.photo" class="img-thumbnail img-responsive">
-												</div>
-												<div class="col-3 rounded border" style="height: 100%;">
-													<div class="row btn-group-vertical" style="height: 100%;">
-														<button type="button"
-															v-on:click="Botton_Re_Photo()"
-															class="btn btn-outline-info btn-sm"
-															style="font-size:10px;line-height: 12px;">更换照片</button>
-
-														<div class="modal fade" id="rehouseholdphotomodal">
-															<div class="modal-dialog  modal-lg">
-																<div class="modal-content">
-
-																	<!-- 模态框头部 -->
-																	<div class="modal-header">
-																		<h4 class="modal-title">更换照片</h4>
-																		<button type="button" class="close"
-																			data-dismiss="modal">&times;</button>
-																	</div>
-
-																	<!-- 模态框主体 -->
-																	<div class="modal-body">
-																		<div class="input-group mb-3">请将照片放在'照片'文件夹下</div>
-																		<div class="input-group mb-3">
-																			<div class="input-group-prepend">
-																			<span
-																				class="input-group-text">. /照片/</span>
-																			</div>
-
-																			<input v-model="input_message.photo"
-																				type="text" class="form-control">
-						
-																		</div>
-																	</div>
-
-																	<!-- 模态框底部 -->
-																	<div class="modal-footer">
-																		<button type="button"
-																			v-on:click="Botton_Cg_Photo()"
-																			class="btn btn-secondary">修改</button>
-																	</div>
-																	<div id="bottonrehdphalerts"></div>
-																</div>
-															</div>
-														</div>
-														
-														<!--修改信息，直接从上边照搬吧-->
-														<button type="button" v-on:click="Botton_Re_Household()"
-															class="btn btn-outline-info btn-sm"
-															style="font-size:10px;line-height: 12px;">修改信息</button>
-														<div class="modal fade" id="rehouseholdmodal">
-															<div class="modal-dialog  modal-lg">
-																<div class="modal-content">
-																	<!-- 模态框头部 -->
-																	<div class="modal-header">
-																		<h4 class="modal-title">修改学生信息</h4>
-																		<button type="button" class="close"
-																			data-dismiss="modal">&times;</button>
-																	</div>
-
-																	<!-- 模态框主体 -->
-																	<div class="modal-body">
-																		<div class="container">
-																			<!--基本信息表单-->
-																			<form class="form-group">
-																				<div class="input-group mb-3">
-																					<div class="input-group-prepend">
-																						<span class="input-group-text">学生基本信息</span>
-																					</div>
-																					<input v-model="input_message.name_s" type="text"
-																						class="form-control" placeholder="姓名">
-																					<input v-model="input_message.id_s" type="text"
-																						class="form-control" placeholder="学号"
-																						style="width: 150px;">
-																					<input v-model="input_message.sex_s" type="text"
-																						class="form-control" placeholder="性别"
-																						style="width: 20px;">
-																					<input v-model="input_message.birthday_s" type="text"
-																						class="form-control" placeholder="出生年月">
-																					<input v-model="input_message.race_s" type="text"
-																						class="form-control" placeholder="民族"><br>
-																				</div>
-																				<!--学生详细信息-->
-																				<div class="input-group mb-3">
-																					<div class="input-group-prepend">
-																						<span class="input-group-text">学生详细信息</span>
-																					</div>
-																					<input v-model="input_message.political_s" type="text"
-																						class="form-control" placeholder="政治面貌">
-																					<input v-model="input_message.QQ_s" type="text"
-																						class="form-control" placeholder="QQ"
-																						style="width: 20px;">
-																					<input v-model="input_message.wechat_s" type="text"
-																						class="form-control" placeholder="微信"
-																						style="width:20px">
-																					<input v-model="input_message.phone_s" type="text"
-																						class="form-control" placeholder="联系电话"
-																						style="width: 50px;">
-																				</div>
-																				<!--学生详细信息补充-->
-																				<div class="input-group mb-3">
-																					<input v-model="input_message.grade_s" type="text"
-																						class="form-control" placeholder="班级"
-																						style="width: 20px;">
-																					<input v-model="input_message.specialty_s" type="text"
-																						class="form-control" placeholder="专业"
-																						style="width: 50px;">
-																					<input v-model="input_message.home_s" type="text"
-																						class="form-control" placeholder="家庭住址"
-																						style="width: 120px;">
-																					<input v-model="input_message.idcard_s" type="text"
-																						class="form-control" placeholder="身份证号">
-																				</div>
-																			</form>
-																			<!--修改班级-->
-																			<form class="form-group">
-																				<div class="input-group mb-3"
-																					style="width:210px;">
-																					<div class="input-group-prepend">
-																						<span
-																							class="input-group-text">属于班级</span>
-																					</div>
-																					<select class="form-control"
-																						v-model="input_message.groupnum">
-																						<option
-																							v-for="(group, groupnum, index) in Persons">
-																							{{Groups2['g'+groupnum]}}
-																						</option>
-																					</select>
-																				</div>
-																			</form>
-																		</div>
-																	</div>
-																	<!-- 模态框底部 -->
-																	<div class="modal-footer">
-																		<button type="button"
-																			v-on:click="Botton_Cg_Household()"
-																			class="btn btn-secondary">修改</button>
-																	</div>
-																	<div id="bottonrehdalerts"></div>
-																</div>
-															</div>
-														</div>
-														
-														
-														<button type="button"
-															v-on:click="Botton_Isdelete()"
-															class="btn btn-outline-info btn-sm"
-															style="font-size:10px;line-height: 12px;">删除该户</button>
-														<div class="modal fade" id="delhouseholdmodal">
-															<div class="modal-dialog  modal-lg">
-																<div class="modal-content">
-
-																	<!-- 模态框头部 -->
-																	<div class="modal-header">
-																		<h4 class="modal-title">确认删除该户？</h4>
-																		<button type="button" class="close"
-																			data-dismiss="modal">&times;</button>
-																	</div>
-
-																	<!-- 模态框主体 -->
-																	<div class="modal-body">
-																		<div class="container">
-																			
-																		</div>
-																	</div>
-
-																	<!-- 模态框底部 -->
-																	<div class="modal-footer">
-																		<button type="button"
-																			v-on:click="Botton_DEL_Household(print_message.ownerid)"
-																			class="btn btn-secondary">删除</button>
-																	</div>
-																	
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+									</div>
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>姓名</strong></div>
+										<div class="col border">{{print_message.name_s}}</div>
+										<div class="col border"><strong>性别</strong></div>
+										<div class="col border">{{print_message.sex_s}}</div>
+										<div class="col border"><strong>出生年月</strong></div>
+										<div class="col border">{{print_message.birthday_s}}</div>
+										<div class="col border"><strong>民族</strong></div>
+										<div class="col border">{{print_message.race_s}}</div>
+									</div>
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>政治面貌</strong></div>
+										<div class="col border">{{print_message.political_s}}</div>
+										<div class="col border"><strong>微信</strong></div>
+										<div class="col border">{{print_message.wechat_s}}</div>
+										<div class="col border"><strong>QQ</strong></div>
+										<div class="col border">{{print_message.QQ_s}}</div>
+									</div>
+									<div class="row  border" style="height: 25%;">
+										<div class="col border"><strong>身份证号</strong></div>
+										<div class="col border">{{print_message.idcard_s}}</div>
+										<div class="col border"><strong>联系电话</strong></div>
+										<div class="col border">{{print_message.phone_s}}</div>
 									</div>
 								</div>
 								
+								<!--照片询问一下要求要不要留-->
+								<!--不需要，已经删除，恢复请到recycle_bin_6.txt-->
+							
+
 								<!--这里是家长信息-->
-								<div class="col rounded border bg-white" style="height: 22%;">
+								<div class="col rounded border bg-white" style="height: 33%;">
 									<!--家长1的信息-->
-									<div class="row  border" style="height: 25%;">
-										<div class="col border"><strong>1号家长的姓名</strong></div>
+									<div class="row  border" style="height: 16.66%;">
+										<div style="margin: 0 auto;text-align: center;">
+											----------家长1的个人信息----------
+										</div>
+									</div>
+									<div class="row  border" style="height: 16.66%;">
+										<div class="col border"><strong>姓名</strong></div>
 										<div class="col border">{{print_message.name_1}}</div>
-										<div class="col border"><strong>1号家长与学生关系</strong></div>
+										<div class="col border"><strong>关系</strong></div>
 										<div class="col border">{{print_message.relationship_1}}</div>
 									</div>
-									<div class="row  border" style="height: 25%;">
-										<div class="col border"><strong>1号家长的微信</strong></div>
+									<div class="row  border" style="height: 16.66%;">
+										<div class="col border"><strong>微信</strong></div>
 										<div class="col border">{{print_message.wechat_1}}</div>
-										<div class="col border"><strong>1号家长的联系电话</strong></div>
+										<div class="col border"><strong>电话</strong></div>
 										<div class="col border">{{print_message.phone_1}}</div>
 									</div>
 									<!--家长2的信息-->
-									<div class="row  border" style="height: 25%;">
-										<div class="col border"><strong>2号家长的姓名</strong></div>
+									<div class="row  border" style="height: 16.66%;">
+										<div style="margin: 0 auto;text-align: center;">
+											----------家长2的个人信息----------
+										</div>
+									</div>
+									<div class="row  border" style="height: 16.66%;">
+										<div class="col border"><strong>姓名</strong></div>
 										<div class="col border">{{print_message.name_2}}</div>
-										<div class="col border"><strong>2号家长与学生关系</strong></div>
+										<div class="col border"><strong>关系</strong></div>
 										<div class="col border">{{print_message.relationship_2}}</div>
 									</div>
-									<div class="row  border" style="height: 25%;">
-										<div class="col border"><strong>2号家长的微信</strong></div>
+									<div class="row  border" style="height: 16.67%;">
+										<div class="col border"><strong>微信</strong></div>
 										<div class="col border">{{print_message.wechat_2}}</div>
-										<div class="col border"><strong>2号家长的联系电话</strong></div>
+										<div class="col border"><strong>电话</strong></div>
 										<div class="col border">{{print_message.phone_2}}</div>
 									</div>
 								</div>
