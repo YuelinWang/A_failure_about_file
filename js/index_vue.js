@@ -143,23 +143,23 @@ var Persons_Vue = new Vue({
                 Alert('错误','并未添加查找信息','warning','#bottonfindpeoalerts');
             }else{
                 var key = '';
-                if(Persons_Vue.find_people_input.key=='学号'){key = 'ownerid';}
-                else{key = 'name';}
+                if(Persons_Vue.find_people_input.key=='学号'){key = 'id_s';}
+                else{key = 'name_s';}
                 var value = Persons_Vue.find_people_input.value;
                 
                 console.log(key,value,Persons_Vue.find_people_input.value);
 
                 var foudhousehold = undefined;
                 for(groupnum in Persons_Vue.Persons){
-                    for(ownerid in Persons_Vue.Persons[groupnum]){
-                        var household = Persons_Vue.Persons[groupnum][ownerid];
+                    for(id_s in Persons_Vue.Persons[groupnum]){
+                        var household = Persons_Vue.Persons[groupnum][id_s];
                         //console.log(household.name);
                         if(household[key]==value){
                             foudhousehold = household;
                         }else{
                             for(id in household.viligers){
                                 var key1 = key;
-                                if(key1 == 'ownerid')   key1 = 'id';
+                                if(key1 == 'id_s')   key1 = 'id';
                                 if(household.viligers[id][key]==value){
                                     foudhousehold = household;
                                     break;
@@ -195,7 +195,7 @@ var Persons_Vue = new Vue({
             $('#rehouseholdphotomodal').modal('hide');
             Persons_Vue.print_message.photo = Persons_Vue.input_message.photo;
             //console.log(Persons_Vue.print_message.ownerid);
-            window.Cg_Household_Photo(Persons_Vue.print_message.ownerid,Persons_Vue.print_message.photo);
+            window.Cg_Household_Photo(Persons_Vue.print_message.id_s,Persons_Vue.print_message.photo);
         }
     }
 });

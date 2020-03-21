@@ -323,6 +323,7 @@
 																	<span class="input-group-text">查找</span>
 																</div>
 																<!--为什么不一样-->
+																<!--身份证唯一，比较简单，姓名不唯一-->
 																<select class="form-control" v-model="find_people_input.key">
 																	<option v-for="(key,index) in find_people_keys">
 																		{{key}}
@@ -343,7 +344,7 @@
 											</div>
 										</div>
 									</li>
-									<!---->
+									<!--显示后台的列表-->
 									<li v-for="(group, groupnum, index) in Persons" class="">
 										<div class="btn-group rounded border" style="width: 100%;">
 											<button v-bind:href="'#group'+groupnum" data-toggle="collapse" class="btn btn-sm container-fluid btn-warning"
@@ -352,7 +353,7 @@
 										</div>
 										<ul v-bind:id="'group'+groupnum" class="collapse  rounded border border-warning" style="list-style: none;">
 											<li v-for="household in group">
-												<button class="btn btn-sm btn-light rounded border container-fluid" v-on:click="Botton_Change_Print(household)">{{household.name}}</button>
+												<button class="btn btn-sm btn-light rounded border container-fluid" v-on:click="Botton_Change_Print(household)">{{household.name_s}}</button>
 											</li>
 										</ul>
 									</li>
